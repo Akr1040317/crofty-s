@@ -1,0 +1,138 @@
+.contact-section {
+  background: linear-gradient(135deg, var(--dark-green) 0%, var(--dark-green-alt) 100%);
+  padding: 4rem 2rem;
+  margin-top: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 30px,
+    rgba(201, 169, 97, 0.03) 30px,
+    rgba(201, 169, 97, 0.03) 31px
+  );
+  pointer-events: none;
+}
+
+.contact-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--gold);
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1.5rem;
+}
+
+.contact-intro {
+  font-size: 1.3rem;
+  color: var(--light-gold);
+  line-height: 1.8;
+  margin-bottom: 3rem;
+}
+
+.contact-methods {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 2px solid rgba(201, 169, 97, 0.3);
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--gold);
+  transform: translateY(-5px);
+}
+
+.contact-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.contact-card h3 {
+  font-size: 1.5rem;
+  color: var(--gold);
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.contact-link {
+  color: var(--cream);
+  font-size: 1.15rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: block;
+}
+
+.contact-link:hover {
+  color: var(--gold);
+}
+
+.contact-note {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: rgba(107, 39, 55, 0.3);
+  border-left: 4px solid var(--burgundy);
+  color: var(--cream);
+  font-size: 1.15rem;
+  line-height: 1.8;
+  text-align: left;
+}
+
+.contact-note strong {
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 3rem 1.5rem;
+  }
+  
+  .contact-title {
+    font-size: 2rem;
+  }
+  
+  .contact-intro {
+    font-size: 1.1rem;
+  }
+  
+  .contact-methods {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .contact-card {
+    padding: 1.5rem;
+  }
+  
+  .contact-note {
+    padding: 1.5rem;
+    font-size: 1rem;
+  }
+}

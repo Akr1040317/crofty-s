@@ -1,0 +1,129 @@
+.header {
+  background: linear-gradient(135deg, var(--dark-green) 0%, var(--dark-green-alt) 100%);
+  padding: 3rem 2rem;
+  padding-top: calc(3rem + 80px);
+  text-align: center;
+  position: relative;
+  border-bottom: 4px solid var(--gold);
+  overflow: hidden;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 50px,
+    rgba(201, 169, 97, 0.03) 50px,
+    rgba(201, 169, 97, 0.03) 51px
+  );
+  pointer-events: none;
+}
+
+.header-content {
+  position: relative;
+  z-index: 1;
+}
+
+.header-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 1rem;
+  animation: fadeInDown 1s ease-out;
+}
+
+.header-subtitle {
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--light-gold);
+  margin-bottom: 2rem;
+  animation: fadeIn 1.5s ease-out 0.3s backwards;
+}
+
+.header-proprietor {
+  animation: fadeIn 1.5s ease-out 0.6s backwards;
+}
+
+.proprietor-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--light-gold);
+  margin-bottom: 0.5rem;
+}
+
+.proprietor-title {
+  font-size: 1.1rem;
+  color: var(--light-gold);
+  opacity: 0.9;
+  margin-bottom: 0.5rem;
+}
+
+.proprietor-lancashire {
+  font-size: 1rem;
+  color: var(--light-gold);
+  opacity: 0.85;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.header-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.contact-info-item {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.header-contact-link {
+  color: var(--light-gold);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.header-contact-link:hover {
+  color: var(--gold);
+}
+
+@media (max-width: 768px) {
+  .header-title {
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+  }
+  
+  .header-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .proprietor-name {
+    font-size: 1.1rem;
+  }
+  
+  .proprietor-title {
+    font-size: 1rem;
+  }
+  
+  .proprietor-lancashire {
+    font-size: 0.9rem;
+  }
+  
+  .header-contact-info {
+    gap: 0.4rem;
+  }
+  
+  .contact-info-item {
+    font-size: 0.9rem;
+  }
+}
