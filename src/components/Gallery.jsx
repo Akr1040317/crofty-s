@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './Gallery.css'
 
 const galleryItems = [
@@ -40,31 +41,63 @@ const galleryItems = [
 ]
 
 function Gallery() {
+  const [filter, setFilter] = useState('all')
+
+  const filteredItems = filter === 'all' 
+    ? galleryItems 
+    : galleryItems.filter(item => item.category === filter)
+
   return (
     <section id="gallery" className="gallery-section">
       <div className="container">
         <div className="gallery-header">
           <h2 className="gallery-title">The Collection</h2>
           <p className="gallery-subtitle">Authentic Cricket Memorabilia & Collectibles</p>
+          
+          <div className="gallery-filter">
+            <button 
+              className={`filter-button ${filter === 'all' ? 'active' : ''}`}
+              onClick={() => setFilter('all')}
+            >
+              All Items
+            </button>
+            <button 
+              className={`filter-button ${filter === 'CRICKET' ? 'active' : ''}`}
+              onClick={() => setFilter('CRICKET')}
+            >
+              🏏 Cricketing Stuff
+            </button>
+            <button 
+              className={`filter-button ${filter === 'MUSIC' ? 'active' : ''}`}
+              onClick={() => setFilter('MUSIC')}
+            >
+              🎵 Vinyls/CDs/etc
+            </button>
+          </div>
         </div>
         <div className="gallery-grid">
-          {galleryItems.map((item, index) => (
-            <div 
-              key={index} 
-              className="gallery-item"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="gallery-item-image">
-                <span className="gallery-emoji">{item.emoji}</span>
-                <p className="photo-placeholder">Photo to be added</p>
+          {filteredItems.length > 0 ? (
+            filteredItems.map((item, index) => (
+              <div 
+                key={`${item.category}-${item.title}`} 
+                className="gallery-item visible"
+              >
+                <div className="gallery-item-image">
+                  <span className="gallery-emoji">{item.emoji}</span>
+                  <p className="photo-placeholder">Photo to be added</p>
+                </div>
+                <div className="gallery-item-details">
+                  <h3 className="gallery-item-title">{item.title}</h3>
+                  <p className="gallery-item-description">{item.description}</p>
+                  <span className="gallery-badge">{item.category}</span>
+                </div>
               </div>
-              <div className="gallery-item-details">
-                <h3 className="gallery-item-title">{item.title}</h3>
-                <p className="gallery-item-description">{item.description}</p>
-                <span className="gallery-badge">{item.category}</span>
-              </div>
+            ))
+          ) : (
+            <div className="gallery-empty">
+              <p>No items found in this category.</p>
             </div>
-          ))}
+          )}
         </div>
       </div>
     </section>
