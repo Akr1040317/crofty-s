@@ -65,6 +65,10 @@
   transition: all 0.3s ease;
 }
 
+.contact-card.scroll-animate {
+  opacity: 0;
+}
+
 .contact-card:hover {
   background: rgba(255, 255, 255, 0.15);
   border-color: var(--gold);
@@ -78,19 +82,21 @@
 }
 
 .contact-card h3 {
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
   color: var(--gold);
   font-family: 'Playfair Display', serif;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 0.875rem;
 }
 
 .contact-link {
   color: var(--cream);
-  font-size: 1.15rem;
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
   text-decoration: none;
   transition: color 0.3s ease;
   display: block;
+  word-break: break-word;
+  padding: 0.25rem 0;
 }
 
 .contact-link:hover {
@@ -98,13 +104,13 @@
 }
 
 .contact-note {
-  margin-top: 3rem;
-  padding: 2rem;
+  margin-top: 2rem;
+  padding: 1.5rem;
   background: rgba(107, 39, 55, 0.3);
   border-left: 4px solid var(--burgundy);
   color: var(--cream);
-  font-size: 1.15rem;
-  line-height: 1.8;
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  line-height: 1.7;
   text-align: left;
 }
 
@@ -124,17 +130,60 @@
     margin-top: 2rem;
   }
   
+  .contact-title {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    margin-bottom: 0.875rem;
+  }
+  
+  .contact-intro {
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    margin-bottom: 1.5rem;
+  }
+  
   .contact-methods {
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
   
   .contact-card {
-    padding: 1.25rem;
+    padding: 1.5rem;
+    min-height: auto;
+  }
+  
+  .contact-icon {
+    font-size: 2rem;
+    margin-bottom: 0.875rem;
   }
   
   .contact-note {
     padding: 1.25rem;
     margin-top: 1.5rem;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 1.5rem 0.75rem;
+    margin-top: 1.5rem;
+  }
+  
+  .contact-methods {
+    gap: 1rem;
+  }
+  
+  .contact-card {
+    padding: 1.25rem;
+  }
+  
+  .contact-icon {
+    font-size: 1.75rem;
+  }
+  
+  .contact-note {
+    padding: 1rem;
+    margin-top: 1.25rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
   }
 }

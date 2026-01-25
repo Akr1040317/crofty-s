@@ -183,7 +183,7 @@
 @media (max-width: 768px) {
   .header {
     padding: 1.5rem 1rem;
-    padding-top: calc(1.5rem + 80px);
+    padding-top: calc(1.5rem + 70px);
   }
   
   .header-wrapper {
@@ -201,14 +201,18 @@
   .header-title {
     letter-spacing: 1px;
     margin-bottom: 0.75rem;
+    font-size: clamp(1.5rem, 6vw, 2rem);
   }
   
   .header-subtitle {
     margin-bottom: 1.5rem;
+    font-size: clamp(0.95rem, 3vw, 1.1rem);
+    line-height: 1.5;
   }
   
-  .proprietor-lancashire {
-    margin-bottom: 1rem;
+  .proprietor-title {
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    line-height: 1.4;
   }
   
   .header-contact-info {
@@ -219,5 +223,40 @@
   
   .contact-info-item {
     gap: 0.5rem;
+    font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+  }
+  
+  .contact-info-item .contact-icon {
+    font-size: 1.1rem;
+  }
+  
+  .header-contact-link {
+    padding: 0.3rem 0.4rem;
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 1.25rem 0.75rem;
+    padding-top: calc(1.25rem + 65px);
+  }
+  
+  .header-image-container {
+    max-width: 200px;
+  }
+  
+  .header-title {
+    letter-spacing: 0.5px;
+  }
+  
+  .header-subtitle {
+    margin-bottom: 1.25rem;
+  }
+  
+  .header-contact-info {
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
   }
 }

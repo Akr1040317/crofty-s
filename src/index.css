@@ -69,7 +69,7 @@ h1, h2, h3, h4, h5, h6 {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(15px);
   }
   to {
     opacity: 1;
@@ -77,8 +77,79 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scroll animation classes */
+.scroll-animate {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
 .fade-in-up {
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 1 !important;
+}
+
+.fade-in-left {
+  animation: fadeInLeft 0.6s ease-out forwards;
+  opacity: 1 !important;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.6s ease-out forwards;
+  opacity: 1 !important;
+}
+
+.fade-in-scale {
+  animation: fadeInScale 0.6s ease-out forwards;
+  opacity: 1 !important;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-animate {
+    opacity: 1;
+    animation: none;
+  }
+  
+  .fade-in-up,
+  .fade-in-left,
+  .slide-in-right,
+  .fade-in-scale {
+    animation: none;
+    opacity: 1 !important;
+  }
 }
 
 /* Utility classes */
@@ -102,5 +173,21 @@ h1, h2, h3, h4, h5, h6 {
   
   .container {
     padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 0.95rem;
+  }
+  
+  .container {
+    padding: 0 0.75rem;
+  }
+}
+
+@media (max-width: 375px) {
+  body {
+    font-size: 0.9rem;
   }
 }

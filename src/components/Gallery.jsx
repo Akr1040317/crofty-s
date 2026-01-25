@@ -1,12 +1,13 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './Gallery.css'
 
 const galleryItems = [
   {
     emoji: '🏏',
-    title: 'West Indies Team Bat - 1984',
-    description: 'Full-sized team bat signed by the legendary West Indies squad. Complete signatures from the golden era of Caribbean cricket.',
-    category: 'CRICKET'
+    title: 'Airtel Champions League T-20 Finalists - Trinidad & Tobago (West Indies)',
+    description: 'This 1st competition was won by New South Wales Blues (Australia). This 1st competition was the fore-runner of IPL T-20 competition.',
+    category: 'CRICKET',
+    image: '/bat.jpeg'
   },
   {
     emoji: '🏏',
@@ -47,14 +48,44 @@ function Gallery() {
     ? galleryItems 
     : galleryItems.filter(item => item.category === filter)
 
+  useEffect(() => {
+    // Re-animate gallery items when filter changes
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const animationType = entry.target.dataset.animate || 'fade-in-up'
+          entry.target.classList.add(animationType)
+          entry.target.style.opacity = '1'
+          observer.unobserve(entry.target)
+        }
+      })
+    }, observerOptions)
+
+    const items = document.querySelectorAll('.gallery-item.scroll-animate')
+    items.forEach(item => {
+      item.style.opacity = '0'
+      item.classList.remove('fade-in-up', 'fade-in-scale', 'slide-in-right', 'fade-in-left')
+      observer.observe(item)
+    })
+
+    return () => {
+      items.forEach(item => observer.unobserve(item))
+    }
+  }, [filter])
+
   return (
-    <section id="gallery" className="gallery-section">
+    <section id="gallery" className="gallery-section scroll-animate" data-animate="fade-in-up">
       <div className="container">
-        <div className="gallery-header">
+        <div className="gallery-header scroll-animate" data-animate="fade-in-up">
           <h2 className="gallery-title">The Collection</h2>
           <p className="gallery-subtitle">Authentic Cricket Memorabilia & Collectibles</p>
           
-          <div className="gallery-filter">
+          <div className="gallery-filter scroll-animate" data-animate="fade-in-scale">
             <button 
               className={`filter-button ${filter === 'all' ? 'active' : ''}`}
               onClick={() => setFilter('all')}
@@ -80,11 +111,19 @@ function Gallery() {
             filteredItems.map((item, index) => (
               <div 
                 key={`${item.category}-${item.title}`} 
-                className="gallery-item visible"
+                className="gallery-item scroll-animate"
+                data-animate="fade-in-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="gallery-item-image">
-                  <span className="gallery-emoji">{item.emoji}</span>
-                  <p className="photo-placeholder">Photo to be added</p>
+                <div className={`gallery-item-image ${item.image ? 'has-image' : ''}`}>
+                  {item.image ? (
+                    <img src={item.image} alt={item.title} className="gallery-item-img" />
+                  ) : (
+                    <>
+                      <span className="gallery-emoji">{item.emoji}</span>
+                      <p className="photo-placeholder">Photo to be added</p>
+                    </>
+                  )}
                 </div>
                 <div className="gallery-item-details">
                   <h3 className="gallery-item-title">{item.title}</h3>
@@ -94,7 +133,7 @@ function Gallery() {
               </div>
             ))
           ) : (
-            <div className="gallery-empty">
+            <div className="gallery-empty scroll-animate" data-animate="fade-in-scale">
               <p>No items found in this category.</p>
             </div>
           )}

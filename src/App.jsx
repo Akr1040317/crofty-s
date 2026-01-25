@@ -9,7 +9,7 @@ import './App.css'
 
 function App() {
   useEffect(() => {
-    // Intersection Observer for fade-in animations
+    // Intersection Observer for scroll animations
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px'
@@ -18,14 +18,21 @@ function App() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in-up')
+          // Add animation class based on data attribute or default to fade-in-up
+          const animationType = entry.target.dataset.animate || 'fade-in-up'
+          entry.target.classList.add(animationType)
+          entry.target.style.opacity = '1'
           observer.unobserve(entry.target)
         }
       })
     }, observerOptions)
 
-    const elements = document.querySelectorAll('.gallery-item, .intro-section')
-    elements.forEach(el => observer.observe(el))
+    // Observe all elements with scroll-animate class
+    const elements = document.querySelectorAll('.scroll-animate')
+    elements.forEach(el => {
+      el.style.opacity = '0'
+      observer.observe(el)
+    })
 
     return () => {
       elements.forEach(el => observer.unobserve(el))
