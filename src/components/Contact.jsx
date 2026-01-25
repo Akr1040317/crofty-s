@@ -43,7 +43,7 @@ function Contact() {
               and shipped via FedEx, USPS, UPS, or DHL (whichever is applicable to your location) to your location worldwide.
             </p>
             <p style={{ marginTop: '1rem' }}>
-              Payment must be received and cleared before shipment. While conversations on the phone and email, instructions for transfer of fees will be provided.
+              Payment must be received and cleared before shipment. During phone and email conversations, detailed instructions for fee transfer will be provided.
             </p>
             <p style={{ marginTop: '1rem' }}>
               All items are sold as-is with authenticity guaranteed.

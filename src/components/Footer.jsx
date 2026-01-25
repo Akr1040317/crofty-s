@@ -6,7 +6,7 @@ function Footer() {
       <div className="footer-divider"></div>
       <div className="footer-content">
         <p className="footer-name">Crofty's Sporting Collectibles & Things</p>
-        <p className="footer-tagline">Authentic Cricket Memorabilia | Vintage Vinyl Records</p>
+        <p className="footer-tagline">Authentic Cricket Memorabilia | Original Vinyl Records, etc</p>
         <div className="footer-contact-info">
           <p className="footer-contact-item">
             <a href="mailto:c.e.h.croft@gmail.com" className="footer-contact-link">c.e.h.croft@gmail.com</a>

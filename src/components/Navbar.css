@@ -19,10 +19,12 @@
 .navbar-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .navbar-brand {
@@ -36,7 +38,7 @@
 
 .brand-text {
   font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
   font-weight: 700;
   color: var(--gold);
   letter-spacing: 1px;
@@ -56,7 +58,7 @@
   background: none;
   border: none;
   font-family: 'Crimson Text', serif;
-  font-size: 1.15rem;
+  font-size: clamp(0.9rem, 1.3vw, 1.05rem);
   color: var(--light-gold);
   cursor: pointer;
   padding: 0.5rem 0;
