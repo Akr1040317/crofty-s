@@ -23,6 +23,7 @@
   align-items: flex-start;
   position: sticky;
   top: 100px;
+  overflow: visible;
 }
 
 .intro-image {
@@ -32,7 +33,9 @@
   border-radius: 8px;
   border: 2px solid var(--gold);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
+  display: block;
 }
 
 .intro-text-content {
@@ -92,8 +95,10 @@
   }
   
   .intro-image {
-    max-height: 400px;
-    object-fit: cover;
+    max-height: none;
+    height: auto;
+    width: 100%;
+    object-fit: contain;
   }
 }
 
@@ -113,7 +118,10 @@
   
   .intro-image {
     border-width: 2px;
-    max-height: 300px;
+    max-height: none;
+    height: auto;
+    width: 100%;
+    object-fit: contain;
   }
   
   .highlight-box {
@@ -139,7 +147,10 @@
   }
   
   .intro-image {
-    max-height: 250px;
+    max-height: none;
+    height: auto;
+    width: 100%;
+    object-fit: contain;
   }
   
   .highlight-box {

@@ -43,6 +43,7 @@
   justify-content: center;
   align-items: center;
   max-width: 85%;
+  overflow: visible;
 }
 
 .header-image {
@@ -52,8 +53,10 @@
   border-radius: 12px;
   border: 2px solid var(--gold);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
   animation: fadeIn 1.5s ease-out 0.2s backwards;
+  display: block;
 }
 
 .header-content {
@@ -196,6 +199,10 @@
   
   .header-image {
     border-width: 2px;
+    max-height: none;
+    height: auto;
+    width: 100%;
+    object-fit: contain;
   }
   
   .header-title {
@@ -244,6 +251,13 @@
   
   .header-image-container {
     max-width: 200px;
+  }
+  
+  .header-image {
+    max-height: none;
+    height: auto;
+    width: 100%;
+    object-fit: contain;
   }
   
   .header-title {
