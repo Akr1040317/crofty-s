@@ -18,7 +18,7 @@ function Introduction() {
             </p>
             <p style={{ marginTop: '1rem' }}>
               Additionally, I maintain a collection of over 1,500 original vinyl records and CDs spanning various genres and eras, 
-              currently being cataloged for serious music collectors. I also have videotapes of games in Sri Lanka.
+              currently being cataloged for serious music collectors. I also have video tapes and CD's etc. of West Indies Cricket Tours to Sri Lanka, United Kingdom etc.
             </p>
           </div>
         </div>
