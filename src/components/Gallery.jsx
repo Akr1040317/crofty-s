@@ -7,37 +7,43 @@ const galleryItems = [
     title: 'Airtel Champions League T-20 Finalists - Trinidad & Tobago (West Indies)',
     description: 'This 1st competition was won by New South Wales Blues (Australia). This 1st competition was the fore-runner of IPL T-20 competition.',
     category: 'CRICKET',
-    image: '/bat.jpeg'
+    image: '/bat.jpeg',
+    parcelId: '001'
   },
   {
     emoji: '🏏',
     title: 'England Tour Bat - Signed',
     description: 'Authentic match bat signed by touring England team. Pristine condition with clear signatures from all team members.',
-    category: 'CRICKET'
+    category: 'CRICKET',
+    parcelId: '002'
   },
   {
     emoji: '🎵',
     title: 'Vinyl Collection - Classic Rock',
     description: 'Curated selection of vintage vinyl records from the golden age of rock. Original pressings in excellent condition.',
-    category: 'MUSIC'
+    category: 'MUSIC',
+    parcelId: '003'
   },
   {
     emoji: '🏏',
     title: 'Australian Tour Memorabilia',
     description: 'Signed bat from memorable Australia tour with complete squad signatures. Historic piece from an unforgettable series.',
-    category: 'CRICKET'
+    category: 'CRICKET',
+    parcelId: '004'
   },
   {
     emoji: '🏏',
     title: 'County Cricket Collection',
     description: 'Lancashire County Cricket Club signed memorabilia. Features signatures from championship seasons and notable players.',
-    category: 'CRICKET'
+    category: 'CRICKET',
+    parcelId: '005'
   },
   {
     emoji: '🎵',
     title: 'Jazz & Blues Vinyl',
     description: 'Rare jazz and blues recordings from legendary artists. Original pressings from the 1960s and 1970s in collectible condition.',
-    category: 'MUSIC'
+    category: 'MUSIC',
+    parcelId: '006'
   }
 ]
 
@@ -127,6 +133,7 @@ function Gallery() {
                 </div>
                 <div className="gallery-item-details">
                   <h3 className="gallery-item-title">{item.title}</h3>
+                  <p className="gallery-item-parcel-id">Parcel ID: {item.parcelId}</p>
                   <p className="gallery-item-description">{item.description}</p>
                   <span className="gallery-badge">{item.category}</span>
                 </div>
